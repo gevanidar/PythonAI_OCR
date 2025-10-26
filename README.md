@@ -24,10 +24,12 @@ Does the data contain labels or do I need to create it myself? Depending on data
 
 ## Describe the data found
 First select the data and then look at the data using python, (see lecture notes).
+
 - [ ] TODO: 
 
 ### Amount of data?
 - A-Z, total amount of images: 37889. There are more images, I will start of with this smaller dataset and add data depending on how long it takes. Perhaps do a run with fewer data points first.
+- After testing I will start with a lot smaller set to first work out how to get it to work and then setup for larget datasets once the model can train and test itself.
 ### Quality of the data
 - The images ar 32x32 pixels large. 
 
@@ -36,4 +38,3 @@ Dataset: [Kaggle - vaibhao - handwritten characters](https://www.kaggle.com/data
 
 ## Selected project
 Hand written text
-
