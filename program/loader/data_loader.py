@@ -62,7 +62,7 @@ def load_data_from_file(folder_path, filename, image_size):
     return np.array(img).flatten()
 
 
-def load_data_from_root_folder(root_folder):
+def load_data_from_root_folder(root_folder, image_size):
     """
     Load images in subfolders of root_folder
 
@@ -71,13 +71,11 @@ def load_data_from_root_folder(root_folder):
 
     Args:
         root_folder (str): The base folder containing all the labeled subfolders
+        image_size (Tuple(int, int)): The new size of the image
     """
 
     images = []
     labels = []
-
-    image_size = (8, 8)  # Resize he images to a lower size 16x16 pixels
-
     for image_folder in sorted(os.listdir(root_folder)):
         folder_path = os.path.join(root_folder, image_folder)
         if not os.path.isdir(folder_path):

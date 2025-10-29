@@ -72,7 +72,8 @@ if __name__ == "__main__":
     # 'root_folder'
     root_folder = DataSet.FULL.value
 
-    X, y = load_data_from_root_folder(root_folder)
+    image_size = (16, 16)  # Resize to reduce features
+    X, y = load_data_from_root_folder(root_folder, image_size)
 
     if DISPLAY_DATA_INFO:
         # Display information about the data
