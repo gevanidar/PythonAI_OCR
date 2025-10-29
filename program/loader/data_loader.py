@@ -4,6 +4,15 @@ from PIL import Image
 
 
 def label_to_value(character):
+    """
+    Converts character to value based on simple indexing.
+
+    Args:
+        Character (str): String or char of length 1.
+
+    Returns:
+        Value (int): A value for the label. A -> 0, B -> 1... Z -> 25
+    """
     alphabet = [
         "A",
         "B",
