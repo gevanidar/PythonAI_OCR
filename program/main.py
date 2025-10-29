@@ -25,7 +25,7 @@ if __name__ == "__main__":
     # Examples:
     # 'data/root_folder'
     # 'root_folder'
-    root_folder = DataSet.SMALLER.value
+    root_folder = DataSet.FULL.value
 
     X, y = load_data_from_root_folder(root_folder)
 
