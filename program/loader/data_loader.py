@@ -76,7 +76,7 @@ def load_data_from_root_folder(root_folder):
     images = []
     labels = []
 
-    image_size = (16, 16)  # Resize he images to a lower size 16x16 pixels
+    image_size = (8, 8)  # Resize he images to a lower size 16x16 pixels
 
     for image_folder in sorted(os.listdir(root_folder)):
         folder_path = os.path.join(root_folder, image_folder)
