@@ -2,13 +2,21 @@ from loader.data_loader import load_data_from_root_folder
 from modelling.model_helper import setup_train_and_test_data, setup_model, print_report
 import pandas as pd
 
+from enum import Enum
+
 DISPLAY_DATA_INFO = True
+
+
+class DataSet(Enum):
+    SMALLER = "data/letters_smaller/"
+    SMALL = "data/letters_small/"
+    MEDIUM = "data/letters_medium/"
+    FULL = "data/letters/"
+
 
 if __name__ == "__main__":
     # TODO: Select root easier
-    root_folder = "data/letters_medium/"
-    root_folder = "data/letters/"
-    root_folder = "data/letters_smaller/"
+    root_folder = DataSet.SMALLER.value
 
     X, y = load_data_from_root_folder(root_folder)
 
