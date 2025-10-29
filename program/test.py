@@ -2,7 +2,6 @@ from loader.data_loader import load_data_from_root_folder
 from modelling.model_helper import (
     setup_train_and_test_data,
     setup_default_model,
-    get_default_model_name,
     setup_models,
     print_report,
 )
@@ -52,10 +51,24 @@ if __name__ == "__main__":
 
     predictions = model.predict(X_test)
 
-    print_report(y_test, predictions, get_default_model_name())
+    df = pd.DataFrame({"Actual Value": y_test, "Predicted Values": predictions})
+    print(df)
+    print(
+        "Mean Absolute Error (DecisionTree):",
+        metrics.mean_absolute_error(y_test, predictions),
+    )
+    print(
+        "Mean Squared Error (DecisionTree):",
+        metrics.mean_squared_error(y_test, predictions),
+    )
+    print(
+        "Root Mean Squared Error (DecisionTree):",
+        np.sqrt(metrics.mean_squared_error(y_test, predictions)),
+    )
+    print_report(y_test, predictions)
 
 
-# Deprecated
+# Deprecated (Kept after run 20251029)
 def test_multiple():
     btc, btr, br = setup_models(X_train, y_train)
 
@@ -72,7 +85,6 @@ def test_multiple():
         }
     )
     print(df)
-    print_report(y_test, predictions)
     print(
         "Mean Absolute Error (DecisionTree):",
         metrics.mean_absolute_error(y_test, btc_pred),

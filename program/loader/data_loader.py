@@ -3,6 +3,38 @@ import numpy as np
 from PIL import Image
 
 
+def label_to_value(character):
+    alphabet = [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H",
+        "I",
+        "J",
+        "K",
+        "L",
+        "M",
+        "N",
+        "O",
+        "P",
+        "Q",
+        "R",
+        "S",
+        "T",
+        "U",
+        "V",
+        "W",
+        "X",
+        "Y",
+        "Z",
+    ]
+    return alphabet.index(character)
+
+
 def load_data_from_file(folder_path, filename, image_size):
     """
     Load the image data from the file name and convert it to a flat array using numpy.
@@ -48,7 +80,7 @@ def load_data_from_root_folder(root_folder):
 
             try:
                 img_array = load_data_from_file(folder_path, filename, image_size)
-                label = image_folder
+                label = label_to_value(image_folder)
 
                 # Add the image and the corresponding label
                 images.append(img_array)
