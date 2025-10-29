@@ -50,6 +50,8 @@ def test_min_samples(splits, leaves):
 
             total = training_end - start
             info = f"The training took a ({total}) seconds to run"
+
+            start = time.time()
             predictions = model.predict(X_test)
 
             end = time.time()
