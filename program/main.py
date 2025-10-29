@@ -50,14 +50,23 @@ if __name__ == "__main__":
 
     X_train, X_test, y_train, y_test = setup_train_and_test_data(X, y)
 
-    model = setup_decision_tree_classifier(X_train, y_train)
+    min_samples_split = 4
+    min_samples_leaves = 8
+    model = setup_decision_tree_classifier(
+        X_train,
+        y_train,
+        min_samples_split=min_samples_split,
+        min_samples_leaves=min_samples_leaves,
+    )
 
     predictions = model.predict(X_test)
 
     end = time.time()
-    print("The code took a (", end - start, ") seconds to run")
+    total = end - start
 
-    print_report(y_test, predictions, get_default_model_name())
+    model_params = [f"{min_samples_split=}", f"{min_samples_leaves=}"]
+
+    print_report(y_test, predictions, get_default_model_name(), total, model_params)
 
 
 # Deprecated

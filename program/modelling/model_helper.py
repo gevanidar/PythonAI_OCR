@@ -13,7 +13,7 @@ from sklearn.metrics import (
 import numpy as np
 
 
-def print_report(y_test, predictions, model_name):
+def print_report(y_test, predictions, model_name, time, model_params):
     """
     Create accuracy and classification report from the test predictions.
     Prints the absolute error, mean squared error and roo mean squared error for the prediction
@@ -33,6 +33,10 @@ def print_report(y_test, predictions, model_name):
     # Create a classification report of y_test compared to the predictions
     report = classification_report(y_test, predictions)
 
+    print(SEPARATOR)
+    print("The code took a (", time, ") seconds to run")
+    print(SEPARATOR)
+    print(f"{model_params=}")
     # Print the dataframe
     print_frame = False
     if print_frame:
@@ -111,7 +115,9 @@ def setup_default_model(X_train, y_train):
     return setup_model(X_train, y_train, get_default_model())
 
 
-def setup_decision_tree_classifier(X_train, y_train):
+def setup_decision_tree_classifier(
+    X_train, y_train, min_samples_split, min_samples_leaves
+):
     """
     Setup the model and fit it to the data
     Testing for mo
@@ -124,8 +130,6 @@ def setup_decision_tree_classifier(X_train, y_train):
         model (DecisionTreeClassifier): DecisionTreeClassifier model fit to data
     """
     # Create the model and fit it to the training data
-    min_samples_split = 4
-    min_samples_leaves = 8
     model = DecisionTreeClassifier(
         min_samples_split=min_samples_split, min_samples_leaf=min_samples_leaves
     )
