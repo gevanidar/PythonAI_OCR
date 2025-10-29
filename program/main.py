@@ -1,65 +1,19 @@
-import os
-import numpy as np
-from PIL import Image
-
-
-def load_images(root_folder):
-    """
-    Load images in subfolders of root_folder
-    """
-
-    images = []
-    labels = []
-
-    image_size = (16, 16)
-
-    for image_folder in sorted(os.listdir(root_folder)):
-        folder_path = os.path.join(root_folder, image_folder)
-        if not os.path.isdir(folder_path):
-            continue
-
-        for filename in os.listdir(folder_path):
-            if not filename.endswith((".jpg")):
-                continue
-
-            try:
-                image_path = os.path.join(folder_path, filename)
-
-                img = Image.open(image_path).convert("L")
-
-                img = img.resize(image_size)
-
-                img_array = np.array(img).flatten()
-
-                images.append(img_array)
-                labels.append(image_folder)
-
-            except Exception as e:
-                print(f"Error when processing the file {filename}: {e}")
-    return np.array(images), np.array(labels)
-
+from loader.data_loader import load_data_from_root_folder
 
 from sklearn.model_selection import train_test_split
 
-# Bad for OCR from sklearn.svm import SVC
-from sklearn.linear_model import SGDClassifier
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.metrics import accuracy_score, classification_report
 
 
 root_folder = "data/letters_medium/"
 root_folder = "data/letters/"
-X, y = load_images(root_folder)
+root_folder = "data/letters_smaller/"
+X, y = load_data_from_root_folder(root_folder)
 print(X, y)
 
 
-# TODO: Change y labels so that they map to int (can be a simple index)
-# def label_to_value()
-# def value_to_label()
-
-
-start = True
-if start:
+if __name__ == "__main__":
     print(
         "Splitting data into Training set (X_train, y_train) and a Trsting set (X_test, y_test)"
     )
