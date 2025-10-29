@@ -23,6 +23,7 @@ def print_report(y_test, predictions, model_name):
     Args:
         y_test (List(str)): The correct labels
         predictions (List(str)): The predictions done by the model
+        model_name (str): String representation of model to be used in output
     """
     SEPARATOR = "-----------------------------------------------------------------------------------------"
 
