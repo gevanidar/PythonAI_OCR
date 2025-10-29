@@ -13,6 +13,7 @@ import time
 
 from enum import Enum
 
+# Display extra information about the data
 DISPLAY_DATA_INFO = False
 
 
@@ -29,13 +30,14 @@ class DataSet(Enum):
     FULL = "data/letters/"
 
 
-def test_min_samples(splits, leaves):
+def test_min_samples(splits, leaves, image_size):
     """
     Helped function for testing over several 'splits' and 'leaves' as parameter to check performance.
 
     Args:
         splits (List(int)): containing min_samples_splits
         leaves (List(int)): containing min_samples_leaves
+        image_size (Tuple(int, int)): Size of the images, for debugging
     """
     for split in splits:
         for leave in leaves:
@@ -49,7 +51,8 @@ def test_min_samples(splits, leaves):
             training_end = time.time()
 
             total = training_end - start
-            info = f"The training took a ({total}) seconds to run"
+            info = f"Image size: {image_size}"
+            info += f"\nThe training took a ({total}) seconds to run"
 
             start = time.time()
             predictions = model.predict(X_test)
@@ -89,7 +92,7 @@ if __name__ == "__main__":
     splits = [2, 4]
     leaves = [1, 2, 4, 8]
     # splits = [6] leaves = [12]
-    test_min_samples(splits, leaves)
+    test_min_samples(splits, leaves, image_size)
     # model = setup_decision_tree_classifier( X_train, y_train, min_samples_split=min_samples_split, min_samples_leaves=min_samples_leaves, )
 
     # predictions = model.predict(X_test)
