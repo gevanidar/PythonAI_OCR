@@ -29,6 +29,35 @@ class DataSet(Enum):
     FULL = "data/letters/"
 
 
+def test_min_samples(splits, leaves):
+    """
+    Helped function for testing over several 'splits' and 'leaves' as parameter to check performance.
+
+    Args:
+        splits (List(int)): containing min_samples_splits
+        leaves (List(int)): containing min_samples_leaves
+    """
+    for split in splits:
+        for leave in leaves:
+            model = setup_decision_tree_classifier(
+                X_train,
+                y_train,
+                min_samples_split=min_samples_split,
+                min_samples_leaves=min_samples_leaves,
+            )
+
+            predictions = model.predict(X_test)
+
+            end = time.time()
+            total = end - start
+
+            model_params = [f"min_samples_{split=}", f"min_samples_{leave=}"]
+
+            print_report(
+                y_test, predictions, get_default_model_name(), total, model_params
+            )
+
+
 if __name__ == "__main__":
     start = time.time()
     # Change the below to a root folder path for the dataset
@@ -50,23 +79,19 @@ if __name__ == "__main__":
 
     X_train, X_test, y_train, y_test = setup_train_and_test_data(X, y)
 
-    min_samples_split = 4
-    min_samples_leaves = 8
-    model = setup_decision_tree_classifier(
-        X_train,
-        y_train,
-        min_samples_split=min_samples_split,
-        min_samples_leaves=min_samples_leaves,
-    )
+    splits = [1, 2, 4]
+    leaves = [1, 2, 4, 8]
+    test_min_samples(splits, leaves)
+    # model = setup_decision_tree_classifier( X_train, y_train, min_samples_split=min_samples_split, min_samples_leaves=min_samples_leaves, )
 
-    predictions = model.predict(X_test)
+    # predictions = model.predict(X_test)
 
-    end = time.time()
-    total = end - start
+    # end = time.time()
+    # total = end - start
 
-    model_params = [f"{min_samples_split=}", f"{min_samples_leaves=}"]
+    # model_params = [f"{min_samples_split=}", f"{min_samples_leaves=}"]
 
-    print_report(y_test, predictions, get_default_model_name(), total, model_params)
+    # print_report(y_test, predictions, get_default_model_name(), total, model_params)
 
 
 # Deprecated
