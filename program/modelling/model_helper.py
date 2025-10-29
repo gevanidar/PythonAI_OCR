@@ -34,9 +34,11 @@ def print_report(y_test, predictions, model_name):
     report = classification_report(y_test, predictions)
 
     # Print the dataframe
-    print(SEPARATOR)
-    df = pd.DataFrame({"Actual Value": y_test, "Predicted Values": predictions})
-    print(df)
+    print_frame = False
+    if print_frame:
+        print(SEPARATOR)
+        df = pd.DataFrame({"Actual Value": y_test, "Predicted Values": predictions})
+        print(df)
     # Print the result of he report and accuracy
     print(SEPARATOR)
     print(f"Accuracry: {accuracy:0.5f}\n")

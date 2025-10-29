@@ -13,7 +13,7 @@ import time
 
 from enum import Enum
 
-DISPLAY_DATA_INFO = True
+DISPLAY_DATA_INFO = False
 
 
 class DataSet(Enum):
@@ -54,11 +54,10 @@ if __name__ == "__main__":
 
     predictions = model.predict(X_test)
 
-    print_report(y_test, predictions, get_default_model_name())
-
     end = time.time()
-
     print("The code took a (", end - start, ") seconds to run")
+
+    print_report(y_test, predictions, get_default_model_name())
 
 
 # Deprecated
