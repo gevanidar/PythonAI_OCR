@@ -39,27 +39,31 @@ def test_min_samples(splits, leaves):
     """
     for split in splits:
         for leave in leaves:
+            start = time.time()
             model = setup_decision_tree_classifier(
                 X_train,
                 y_train,
-                min_samples_split=min_samples_split,
-                min_samples_leaves=min_samples_leaves,
+                min_samples_split=split,
+                min_samples_leaves=leave,
             )
+            training_end = time.time()
 
+            total = training_end - start
+            info = f"The training took a ({total}) seconds to run"
             predictions = model.predict(X_test)
 
             end = time.time()
             total = end - start
+            info += f"\nThe prediction took a ({total}) seconds to run"
 
             model_params = [f"min_samples_{split=}", f"min_samples_{leave=}"]
 
             print_report(
-                y_test, predictions, get_default_model_name(), total, model_params
+                y_test, predictions, get_default_model_name(), info, model_params
             )
 
 
 if __name__ == "__main__":
-    start = time.time()
     # Change the below to a root folder path for the dataset
     # Examples:
     # 'data/root_folder'
@@ -79,7 +83,7 @@ if __name__ == "__main__":
 
     X_train, X_test, y_train, y_test = setup_train_and_test_data(X, y)
 
-    splits = [1, 2, 4]
+    splits = [2, 4]
     leaves = [1, 2, 4, 8]
     test_min_samples(splits, leaves)
     # model = setup_decision_tree_classifier( X_train, y_train, min_samples_split=min_samples_split, min_samples_leaves=min_samples_leaves, )

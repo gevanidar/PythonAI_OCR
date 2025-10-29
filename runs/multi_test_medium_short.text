@@ -1,0 +1,56 @@
+The training took a (4.474729776382446) seconds to run
+The prediction took a (4.478704452514648) seconds to run
+model_params=['min_samples_split=2', 'min_samples_leave=1']
+Accuracry: 0.74136
+Mean Absolute Error (DecisionTreeClassifier): 2.053444180522565
+Mean Squared Error (DecisionTreeClassifier): 24.317102137767222
+Root Mean Squared Error (DecisionTreeClassifier): 4.931237384041375
+The training took a (4.084195137023926) seconds to run
+The prediction took a (4.088571548461914) seconds to run
+model_params=['min_samples_split=2', 'min_samples_leave=2']
+Accuracry: 0.74149
+Mean Absolute Error (DecisionTreeClassifier): 2.106492478226445
+Mean Squared Error (DecisionTreeClassifier): 25.792161520190025
+Root Mean Squared Error (DecisionTreeClassifier): 5.078598381462156
+The training took a (4.049419641494751) seconds to run
+The prediction took a (4.05359959602356) seconds to run
+model_params=['min_samples_split=2', 'min_samples_leave=4']
+Accuracry: 0.74426
+Mean Absolute Error (DecisionTreeClassifier): 2.0084455001319608
+Mean Squared Error (DecisionTreeClassifier): 23.63473211929269
+Root Mean Squared Error (DecisionTreeClassifier): 4.861556553131177
+The training took a (3.4776089191436768) seconds to run
+The prediction took a (3.4818897247314453) seconds to run
+model_params=['min_samples_split=2', 'min_samples_leave=8']
+Accuracry: 0.73845
+Mean Absolute Error (DecisionTreeClassifier): 2.0413037740828717
+Mean Squared Error (DecisionTreeClassifier): 23.93626286619161
+Root Mean Squared Error (DecisionTreeClassifier): 4.8924700168924495
+The training took a (4.254216909408569) seconds to run
+The prediction took a (4.2585060596466064) seconds to run
+model_params=['min_samples_split=4', 'min_samples_leave=1']
+Accuracry: 0.74426
+Mean Absolute Error (DecisionTreeClassifier): 2.0331221958300345
+Mean Squared Error (DecisionTreeClassifier): 24.168250197941408
+Root Mean Squared Error (DecisionTreeClassifier): 4.916121458827213
+The training took a (4.075249910354614) seconds to run
+The prediction took a (4.079308986663818) seconds to run
+model_params=['min_samples_split=4', 'min_samples_leave=2']
+Accuracry: 0.73951
+Mean Absolute Error (DecisionTreeClassifier): 2.076933227764582
+Mean Squared Error (DecisionTreeClassifier): 24.971100554235946
+Root Mean Squared Error (DecisionTreeClassifier): 4.997109219762557
+The training took a (3.7417240142822266) seconds to run
+The prediction took a (3.7457993030548096) seconds to run
+model_params=['min_samples_split=4', 'min_samples_leave=4']
+Accuracry: 0.74611
+Mean Absolute Error (DecisionTreeClassifier): 2.015307468989179
+Mean Squared Error (DecisionTreeClassifier): 23.797044074953813
+Root Mean Squared Error (DecisionTreeClassifier): 4.878221404872253
+The training took a (3.651900053024292) seconds to run
+The prediction took a (3.6561901569366455) seconds to run
+model_params=['min_samples_split=4', 'min_samples_leave=8']
+Accuracry: 0.73806
+Mean Absolute Error (DecisionTreeClassifier): 2.0603061493797834
+Mean Squared Error (DecisionTreeClassifier): 24.270651887041435
+Root Mean Squared Error (DecisionTreeClassifier): 4.926525336080332

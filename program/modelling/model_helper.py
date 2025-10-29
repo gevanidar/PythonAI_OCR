@@ -13,7 +13,7 @@ from sklearn.metrics import (
 import numpy as np
 
 
-def print_report(y_test, predictions, model_name, time, model_params):
+def print_report(y_test, predictions, model_name, info, model_params):
     """
     Create accuracy and classification report from the test predictions.
     Prints the absolute error, mean squared error and roo mean squared error for the prediction
@@ -34,7 +34,7 @@ def print_report(y_test, predictions, model_name, time, model_params):
     report = classification_report(y_test, predictions)
 
     print(SEPARATOR)
-    print("The code took a (", time, ") seconds to run")
+    print(info)
     print(SEPARATOR)
     print(f"{model_params=}")
     # Print the dataframe
