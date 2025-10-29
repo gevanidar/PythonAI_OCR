@@ -1,8 +1,6 @@
-from loader.data_loader import load_data_from_root_folder
 from sklearn.model_selection import train_test_split
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.metrics import accuracy_score, classification_report
-import pandas as pd
 
 
 def print_report(y_test, predictions):

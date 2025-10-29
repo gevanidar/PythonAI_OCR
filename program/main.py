@@ -8,6 +8,12 @@ DISPLAY_DATA_INFO = True
 
 
 class DataSet(Enum):
+    """
+    The different folders to be used as root folder when running the project.
+    Used to create easier iteration steps between testing different models.
+
+    """
+
     SMALLER = "data/letters_smaller/"
     SMALL = "data/letters_small/"
     MEDIUM = "data/letters_medium/"
@@ -15,7 +21,10 @@ class DataSet(Enum):
 
 
 if __name__ == "__main__":
-    # TODO: Select root easier
+    # Change the below to a root folder path for the dataset
+    # Examples:
+    # 'data/root_folder'
+    # 'root_folder'
     root_folder = DataSet.SMALLER.value
 
     X, y = load_data_from_root_folder(root_folder)
