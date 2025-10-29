@@ -80,15 +80,56 @@ def setup_train_and_test_data(X, y):
 
 
 def get_default_model():
+    """
+    Simple helper for getting default model class
+
+    Returns:
+        Class (class): Returns the default class specifier.
+    """
     return DecisionTreeClassifier
 
 
 def get_default_model_name():
+    """
+    Simple helper for getting default model class name
+
+    Returns:
+        name (str): String representation of the default model class
+    """
     return get_default_model().__name__
 
 
 def setup_default_model(X_train, y_train):
-    return setup_model(X_train, y_train, DecisionTreeClassifier)
+    """
+    Simple helper for getting default model
+
+    Returns:
+        model (Object): A model from sklearn
+    """
+    return setup_model(X_train, y_train, get_default_model())
+
+
+def setup_decision_tree_classifier(X_train, y_train):
+    """
+    Setup the model and fit it to the data
+    Testing for mo
+
+    Args:
+        X_train (List): The training data used for fitting the model
+        y_train (List): The training labels used for fitting the model
+
+    Returns:
+        model (DecisionTreeClassifier): DecisionTreeClassifier model fit to data
+    """
+    # Create the model and fit it to the training data
+    min_samples_split = 4
+    min_samples_leaves = 8
+    model = DecisionTreeClassifier(
+        min_samples_split=min_samples_split, min_samples_leaf=min_samples_leaves
+    )
+    model.fit(X_train, y_train)
+
+    return model
 
 
 def setup_model(X_train, y_train, model_class):

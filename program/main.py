@@ -1,7 +1,7 @@
 from loader.data_loader import load_data_from_root_folder
 from modelling.model_helper import (
     setup_train_and_test_data,
-    setup_default_model,
+    setup_decision_tree_classifier,
     get_default_model_name,
     setup_models,
     print_report,
@@ -9,6 +9,7 @@ from modelling.model_helper import (
 from sklearn import metrics
 import pandas as pd
 import numpy as np
+import time
 
 from enum import Enum
 
@@ -29,6 +30,7 @@ class DataSet(Enum):
 
 
 if __name__ == "__main__":
+    start = time.time()
     # Change the below to a root folder path for the dataset
     # Examples:
     # 'data/root_folder'
@@ -48,11 +50,15 @@ if __name__ == "__main__":
 
     X_train, X_test, y_train, y_test = setup_train_and_test_data(X, y)
 
-    model = setup_default_model(X_train, y_train)
+    model = setup_decision_tree_classifier(X_train, y_train)
 
     predictions = model.predict(X_test)
 
     print_report(y_test, predictions, get_default_model_name())
+
+    end = time.time()
+
+    print("The code took a (", end - start, ") seconds to run")
 
 
 # Deprecated
