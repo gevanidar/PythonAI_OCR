@@ -10,7 +10,10 @@ Runs available with code snippets, which are located in `runs/`.
 
 ### Folder structure
 `runs/` - contains informaton about test runs on the full dataset.
-`program/` - contains the python project and the data
+`program/` - contains the python project and the data.
+`program/loader` - contains module for loading images.
+`program/modelling` - contains module for modelling.
+
 Latest code can be run inside `program/` with `python3 main.py` or `python main.py` depending on your system and installation.
 
 ## Requirements
@@ -39,3 +42,4 @@ Arvid Nilsson
 # Refrences:
 Documentation of scikit learn: [scikit-learn org](https://scikit-learn.org)
 DataSet: [vaibhao handwritten-characters](https://www.kaggle.com/datasets/vaibhao/handwritten-characters)
+Stack Overflow inspiration for improving algorithm: [Improve decision tree model](https://stackoverflow.com/questions/59147246/how-can-i-improve-the-accuracy-of-my-prediction-from-a-decision-tree-model-using)
