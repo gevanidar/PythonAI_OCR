@@ -21,3 +21,8 @@ However I believe that the only wa t increase the accuracy now is to remove outl
 
 # Further testing with pixel size
 Pixel size 32x32 gives an Accuracy around 70% while reducing the number of pixels to 16x16 gives almost 75% while continuing down to 8x8 pixels gives a little higher. (Medium sized test sample)
+
+
+# 20251104
+## Clean data
+The next step to improve the accuracy of the model is to most likely to clean the data.
