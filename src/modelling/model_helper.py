@@ -40,11 +40,7 @@ def print_report(y_test, predictions, model_name):
         print(df)
     # Print the result of he report and accuracy
     print(SEPARATOR)
-    print(f"Accuracy: {accuracy:0.5f}\n")
-    print(SEPARATOR)
-    print("Classification report")
-    print(report)
-    print(SEPARATOR)
+    print(f"Accuracy ({model_name}): {accuracy:0.5f}\n")
     print(
         f"Mean Absolute Error ({model_name}):",
         mean_absolute_error(y_test, predictions),
@@ -57,6 +53,9 @@ def print_report(y_test, predictions, model_name):
         f"Root Mean Squared Error ({model_name}):",
         np.sqrt(mean_squared_error(y_test, predictions)),
     )
+    print(SEPARATOR)
+    print("Classification report")
+    print(report)
     print(SEPARATOR)
 
 
