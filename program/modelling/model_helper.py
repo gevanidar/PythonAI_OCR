@@ -13,7 +13,7 @@ from sklearn.metrics import (
 import numpy as np
 
 
-def print_report(y_test, predictions, model_name, info, model_params):
+def print_report(y_test, predictions, model_name):
     """
     Create accuracy and classification report from the test predictions.
     Prints the absolute error, mean squared error and roo mean squared error for the prediction
@@ -23,7 +23,6 @@ def print_report(y_test, predictions, model_name, info, model_params):
     Args:
         y_test (List(str)): The correct labels
         predictions (List(str)): The predictions done by the model
-        model_name (str): String representation of model to be used in output
     """
     SEPARATOR = "-----------------------------------------------------------------------------------------"
 
@@ -33,10 +32,6 @@ def print_report(y_test, predictions, model_name, info, model_params):
     # Create a classification report of y_test compared to the predictions
     report = classification_report(y_test, predictions)
 
-    print(SEPARATOR)
-    print(info)
-    print(SEPARATOR)
-    print(f"{model_params=}")
     # Print the dataframe
     print_frame = False
     if print_frame:
@@ -45,7 +40,7 @@ def print_report(y_test, predictions, model_name, info, model_params):
         print(df)
     # Print the result of he report and accuracy
     print(SEPARATOR)
-    print(f"Accuracry: {accuracy:0.5f}\n")
+    print(f"Accuracy: {accuracy:0.5f}\n")
     print(SEPARATOR)
     print("Classification report")
     print(report)

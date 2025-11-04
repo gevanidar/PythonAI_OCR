@@ -15,6 +15,7 @@ from enum import Enum
 
 # Display extra information about the data
 DISPLAY_DATA_INFO = False
+SEPARATOR = "-----------------------------------------------------------------------------------------"
 
 
 class DataSet(Enum):
@@ -30,14 +31,13 @@ class DataSet(Enum):
     FULL = "data/letters/"
 
 
-def test_min_samples(splits, leaves, image_size):
+def test_min_samples(splits, leaves):
     """
     Helped function for testing over several 'splits' and 'leaves' as parameter to check performance.
 
     Args:
         splits (List(int)): containing min_samples_splits
         leaves (List(int)): containing min_samples_leaves
-        image_size (Tuple(int, int)): Size of the images, for debugging
     """
     for split in splits:
         for leave in leaves:
@@ -50,22 +50,21 @@ def test_min_samples(splits, leaves, image_size):
             )
             training_end = time.time()
 
+            print(SEPARATOR)
             total = training_end - start
-            info = f"Image size: {image_size}"
-            info += f"\nThe training took a ({total}) seconds to run"
+            print(f"The training took a ({total}) seconds to run")
 
             start = time.time()
             predictions = model.predict(X_test)
 
             end = time.time()
             total = end - start
-            info += f"\nThe prediction took a ({total}) seconds to run"
+            print(f"The prediction took a ({total}) seconds to run")
 
+            print(SEPARATOR)
             model_params = [f"min_samples_{split=}", f"min_samples_{leave=}"]
-
-            print_report(
-                y_test, predictions, get_default_model_name(), info, model_params
-            )
+            print(f"{model_params=}")
+            print_report(y_test, predictions, get_default_model_name())
 
 
 if __name__ == "__main__":
@@ -73,9 +72,12 @@ if __name__ == "__main__":
     # Examples:
     # 'data/root_folder'
     # 'root_folder'
-    root_folder = DataSet.FULL.value
+    dataset = DataSet.FULL
+    print(f"Data set used: {dataset}")
+    root_folder = dataset.value
 
     image_size = (16, 16)  # Resize to reduce features
+    print(f"Image size {image_size}")
     X, y = load_data_from_root_folder(root_folder, image_size)
 
     if DISPLAY_DATA_INFO:
@@ -92,7 +94,7 @@ if __name__ == "__main__":
     splits = [2, 4]
     leaves = [1, 2, 4, 8]
     # splits = [6] leaves = [12]
-    test_min_samples(splits, leaves, image_size)
+    test_min_samples(splits, leaves)
     # model = setup_decision_tree_classifier( X_train, y_train, min_samples_split=min_samples_split, min_samples_leaves=min_samples_leaves, )
 
     # predictions = model.predict(X_test)
