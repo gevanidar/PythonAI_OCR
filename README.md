@@ -10,15 +10,15 @@ Runs available with code snippets, which are located in `runs/`.
 
 ### Folder structure
 `runs/` - contains informaton about test runs on the full dataset.
-`program/` - contains the python project and the data.
-`program/loader` - contains module for loading images.
-`program/modelling` - contains module for modelling.
+`src/` - contains the python project and the data.
+`src/loader` - contains module for loading images.
+`src/modelling` - contains module for modelling.
 
-Latest code can be run inside `program/` with `python3 main.py` or `python main.py` depending on your system and installation.
+Latest code can be run inside `src/` with `python3 main.py` or `python main.py` depending on your system and installation.
 
 ## Requirements
 ### Data location
-Data should be located in the folder inside `program/data/letters`, folder can be configured in `program/main.py` using te `root_folder` variable.
+Data should be located in the folder inside `src/data/letters`, folder can be configured in `src/main.py` using te `root_folder` variable.
 
 ### Libraries
 `python3`
