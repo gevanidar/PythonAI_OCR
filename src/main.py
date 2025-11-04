@@ -1,3 +1,9 @@
+import time
+
+from sklearn import metrics
+import pandas as pd
+import numpy as np
+
 from loader.data_loader import load_data_from_root_folder
 from modelling.model_helper import (
     setup_train_and_test_data,
@@ -6,10 +12,6 @@ from modelling.model_helper import (
     setup_models,
     print_report,
 )
-from sklearn import metrics
-import pandas as pd
-import numpy as np
-import time
 
 from enum import Enum
 
