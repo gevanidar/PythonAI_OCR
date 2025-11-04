@@ -95,7 +95,6 @@ if __name__ == "__main__":
 
     splits = [2, 4]
     leaves = [1, 2, 4, 8]
-    # splits = [6] leaves = [12]
     test_min_samples(splits, leaves)
     # model = setup_decision_tree_classifier( X_train, y_train, min_samples_split=min_samples_split, min_samples_leaves=min_samples_leaves, )
 
