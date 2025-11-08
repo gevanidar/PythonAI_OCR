@@ -59,7 +59,10 @@ def load_data_from_file(folder_path, filename, image_size):
 
     img = img.resize(image_size)
 
-    return np.array(img).flatten()
+    arr = np.array(img)
+    # Normalize the array from 0 to 255 on pixels to 0 to 1
+    normalized = arr / 255.0
+    return normalized.flatten()
 
 
 def load_data_from_root_folder(root_folder, image_size):

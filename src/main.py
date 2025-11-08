@@ -16,7 +16,7 @@ from modelling.model_helper import (
 from enum import Enum
 
 # Display extra information about the data
-DISPLAY_DATA_INFO = False
+DISPLAY_DATA_INFO = True
 SEPARATOR = "-----------------------------------------------------------------------------------------"
 
 
