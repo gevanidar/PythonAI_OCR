@@ -1,15 +1,13 @@
 # Python AI project
 Using available methods in sklearn to fit a data model to hand written text.
 
-# Part 1
-See [[Part1.md]]
-
 # Part 2
 Runs available with code snippets, which are located in `runs/`.
   - Note: Runs from the SVC have not been stored, approximately 5% correct.
 
 ### Folder structure
 `runs/` - contains informaton about test runs on the full dataset.
+`runs/pre_runs` - contains informaton about test runs for testing.
 `src/` - contains the python project and the data.
 `src/loader` - contains module for loading images.
 `src/modelling` - contains module for modelling.
@@ -18,7 +16,7 @@ Latest code can be run inside `src/` with `python3 main.py` or `python main.py` 
 
 ## Requirements
 ### Data location
-Data should be located in the folder inside `src/data/letters`, folder can be configured in `src/main.py` using te `root_folder` variable.
+Data should be located in the folder inside `src/data/letters`, folder can be configured in `src/main.py` using te `root_folder`.
 
 ### Libraries
 `python3`
