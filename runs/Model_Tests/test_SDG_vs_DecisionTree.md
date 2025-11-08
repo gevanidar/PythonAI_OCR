@@ -1,4 +1,0 @@
-20251026_SDGClassifier_full_run_with_code.md
-Accuracry: 0.68389
-20251026_DecisionTree_full_run_with_code.md
-Accuracry: 0.82238
